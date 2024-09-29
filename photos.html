@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Any File</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .upload-container {
+      width: 50%;
+      max-width: 500px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 20px auto;
+    }
+    .upload-container h3 {
+      margin-top: 0;
+      color: #007bff;
+    }
+    .upload-container button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .uploaded-item {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+    }
+    img {
+      width: 100px;
+      max-width: 100%; /* Ensure image doesn't overflow */
+    }
+    .file-icon {
+      font-size: 30px;
+      color: #ccc;
+    }
+  </style> 
+</head>
+<body> 
+  <div class="upload-container">
+    <h3>Upload Any File</h3>
+
+    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" required>
+      <br><br>
+      <button type="submit">Upload File</button>
+    </form>
+
+    <div id="uploadedFiles">
+      </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <a href="index2.html" style="text-decoration: none;">
+        <button>Home</button>
+      </a>
+    </div>
+  </div>
+  <img src="uploads" alt="" srcset="" style="size: 100px;">
+
+  <script>
+    window.onload = function() {
+      fetch('/uploaded-files') // Assuming your endpoint returns file data
+        .then(response => response.json())
+        .then(files => {
+          const container = document.getElementById('uploadedFiles');
+          container.innerHTML = files.map(file => {
+            const isImage = file.type.startsWith('image/'); // Check if it's an image
+            return `
+              <div class="uploaded-item">
+                ${isImage ? `<img src="/uploads/${file.name}" alt="${file.name}">` : `<i class="file-icon fas fa-file"></i>`}
+                <p>${file.name}</p>
+              </div>
+            `;
+          }).join('');
+        });
+    };
+  </script>
+</body>
+</html>

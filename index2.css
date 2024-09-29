@@ -1,0 +1,42 @@
+/* Elegant Navbar Styles */
+nav {
+    background: linear-gradient(45deg, #4e5d66, #7d8c93, #a3b1b7); /* Subtle gradient with muted tones */
+    padding: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    text-align: center;
+    border-radius: 15px; /* Rounded corners */
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff; /* White text for contrast */
+    font-size: 18px;
+    padding: 12px 25px;
+    margin: 0 12px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1); /* Very subtle background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Light hover effect */
+    color: #4e5d66; /* Muted color on hover */
+    transform: scale(1.1); /* Button scaling effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Intense shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px;
+    }
+
+    nav a {
+        padding: 10px 18px;
+        font-size: 16px;
+        margin: 8px;
+    }
+}
