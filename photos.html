@@ -8,6 +8,10 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
     }
     .upload-container {
       width: 50%;
@@ -45,6 +49,16 @@
       font-size: 30px;
       color: #ccc;
     }
+    .marquee-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
   </style> 
 </head>
 <body> 
@@ -57,8 +71,7 @@
       <button type="submit">Upload File</button>
     </form>
 
-    <div id="uploadedFiles">
-      </div>
+    <div id="uploadedFiles"></div>
 
     <div style="margin-top: 20px; text-align: center;">
       <a href="index2.html" style="text-decoration: none;">
@@ -66,7 +79,11 @@
       </a>
     </div>
   </div>
-  <img src="uploads" alt="" srcset="" style="size: 100px;">
+  <body>
+    <p>lets see hasina</p>
+    <img style="size: 100px;" src="hasina.png" alt="" srcset="">
+    <img src="mosquebohura.jpg" alt="">
+  </body>
 
   <script>
     window.onload = function() {
@@ -86,5 +103,9 @@
         });
     };
   </script>
+
+  <div class="marquee-container">
+    <marquee behavior="scroll" direction="left">Version unknown, but it seems like 1.45535345423543352445432</marquee>
+  </div>
 </body>
 </html>
